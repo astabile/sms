@@ -18,3 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('send-sms-notification', 'App\Http\Controllers\NotificationController@sendSmsNotification');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
