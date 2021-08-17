@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('send-sms-notification', 'App\Http\Controllers\NotificationController@sendSmsNotification');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::Verb(URI, Controller@Action)->name(Route Name)
+Route::get('/', 'App\Http\Controllers\IndexController@index');
+Route::get('/home', 'App\Http\Controllers\HomeController@index');
+Route::get('/send-sms-notification', 'App\Http\Controllers\NotificationController@sendSmsNotification');
