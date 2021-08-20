@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\BotManController;
+
 Auth::routes();
 
 //Route::Verb(URI, Controller@Action)->name(Route Name)
 Route::get('/', 'App\Http\Controllers\IndexController@index')->name('index.index');
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+Route::match(['get', 'post'], 'botman', [BotManController::class, 'handle']);
 
 Route::get('/send', 'App\Http\Controllers\NotificationController@send')->name('notification.send');
 Route::get('/receive', 'App\Http\Controllers\NotificationController@receive')->name('notification.receive');
