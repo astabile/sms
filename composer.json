@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "nexmo/client": "^2.4",
+        "nexmo/laravel": "^2.4",
         "vonage/client": "^2.4"
     },
     "require-dev": {

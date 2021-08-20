@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //Route::Verb(URI, Controller@Action)->name(Route Name)
-Route::get('/', 'App\Http\Controllers\IndexController@index')->name('index.index');;
-Route::get('/send-sms-notification', 'App\Http\Controllers\NotificationController@sendSmsNotification')->name('notification.send');
+Route::get('/', 'App\Http\Controllers\IndexController@index')->name('index.index');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');;
+Route::get('/send', 'App\Http\Controllers\NotificationController@send')->name('notification.send');
+Route::get('/receive', 'App\Http\Controllers\NotificationController@receive')->name('notification.receive');

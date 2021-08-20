@@ -11,7 +11,7 @@ class NotificationController extends Controller
         $this->middleware('auth');
     }
 
-    public function sendSmsNotification()
+    public function send()
     {
         $basic  = new \Vonage\Client\Credentials\Basic(config('app.nexmo_api_key'), config('app.nexmo_api_secret'));
         $client = new \Vonage\Client($basic);
@@ -30,6 +30,16 @@ class NotificationController extends Controller
             echo "The message was sent successfully\n";
         } else {
             echo "The message failed with status: " . $message->getStatus() . "\n";
+        }
+    }
+
+    public function receive()
+    {
+        try {
+            $inbound = \Vonage\SMS\Webhook\Factory::createFromGlobals();
+            error_log($inbound->getText());
+        } catch (\InvalidArgumentException $e) {
+            error_log('invalid message');
         }
     }
 }
