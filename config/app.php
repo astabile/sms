@@ -125,6 +125,21 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Nexmo/Vonage API Credentials
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'nexmo_api_key' => env('NEXMO_API_KEY'),
+    'nexmo_api_secret' => env('NEXMO_API_SECRET'),
+    'nexmo_number' => env('NEXMO_NUMBER'),
+
+    'vonage_api_key' => env('VONAGE_API_KEY'),
+    'vonage_api_secret' => env('VONAGE_API_SECRET'),
+    'vonage_number' => env('VONAGE_NUMBER'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |

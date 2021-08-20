@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "vuetify-loader": "^1.5.0"
+        "nexmo-cli": "^0.3.17",
+        "vuetify-loader": "^1.7.2"
     }
 }

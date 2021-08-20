@@ -6,13 +6,22 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function sendSmsNotification()
     {
-        $basic  = new \Vonage\Client\Credentials\Basic('162bf39a', 'ivhDlBAXeH8dXAIq');
+        $basic  = new \Vonage\Client\Credentials\Basic(config('app.nexmo_api_key'), config('app.nexmo_api_secret'));
         $client = new \Vonage\Client($basic);
 
+        $from = config('app.nexmo_number');
+        $to = '543425296009';
+        $message = 'A text message sent using the Nexmo SMS API';
+
         $response = $client->sms()->send(
-            new \Vonage\SMS\Message\SMS("543425296009", 'Alejandro Stabile', 'A text message sent using the Nexmo SMS API')
+            new \Vonage\SMS\Message\SMS($to, $from, $message)
         );
 
         $message = $response->current();
